@@ -1,0 +1,537 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
+a{
+  text-decoration: none;
+}
+/*SHADERS FIXO*/
+/* Estilo para a sombra */
+.shaded-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14%;
+  background-color: rgba(0, 0, 0, 0.03); /* Cor da sombra - use o alpha (4º valor) para ajustar a opacidade */
+  z-index: 9999; /* Para garantir que a sombra fique acima de outros elementos */
+  pointer-events: none;
+}
+
+/* Estilo para o ícone do WhatsApp */
+.whatsapp-icon {
+  position: fixed;
+  bottom: 20px; /* Distância do ícone até a parte inferior da tela */
+  right: 20px; /* Distância do ícone até a parte direita da tela */
+  width: 80px; /* Largura do ícone */
+  height: 80px; /* Altura do ícone */
+  background-color: #25D366; /* Cor de fundo do ícone - Azul do WhatsApp */
+  border-radius: 50%; /* Tornar o ícone um círculo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+  z-index: 10000; /* Para garantir que o ícone fique acima da sombra */
+  display: flex; /* Para centralizar o ícone verticalmente */
+  align-items: center; /* Para centralizar o ícone verticalmente */
+  justify-content: center; /* Para centralizar o ícone horizontalmente */
+}
+
+/* Estilo para o ícone dentro do círculo */
+.whatsapp-icon svg {
+  width: 30px; /* Tamanho do ícone */
+  height: 30px; /* Tamanho do ícone */
+  fill: #fff; /* Cor do ícone - branco */
+}
+
+/*FORMATAÇÃO NAV DO HEADER*/
+.nav-item {
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header-nav .navbar-nav .nav-item .nav-link {
+  position: relative;
+  overflow: hidden;
+  color: #3C5F9A; /* Cor do texto dos links da nav bar */
+}
+
+.header-nav .navbar-nav .nav-item .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #95AED1; /* Cor da barra inicial ao carregar a página */
+  transform: scaleX(0);
+  transition: transform 0.3s ease; /* Define a velocidade e a função de transição */
+}
+
+.header-nav .navbar-nav .nav-item .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar {
+  background-color: #FFFFFF; /* Cor de fundo da nav bar (branco) */
+  padding: 1em;
+}
+
+.navbar-toggler {
+  border-color: #3C5F9A; /* Cor da borda do botão de toggler */
+}
+
+.navbar-nav .nav-link {
+  color: #3C5F9A; /* Cor do texto dos links da nav bar */
+}
+
+.navbar-nav .nav-link::after {
+  background-color: #3C5F9A; /* Cor da barra nos links ao passar o mouse */
+}
+
+/* Centralizar as opções do menu quando a tela for menor que 768px */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column; /* Empilhar as opções verticalmente */
+    align-items: center; /* Centralizar horizontalmente as opções */
+    padding-top: 1em; /* Adicionar um espaçamento no topo para separar o logo */
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 1em; /* Adicionar espaçamento entre as opções do menu */
+  }
+}
+/*FORMATAÇÃO DO TEMPLATE (imagem) PRINCIPAL*/
+.image-template-box {
+  position: relative;
+  background-color: white;
+  overflow: hidden; /* Para esconder partes da imagem que fiquem fora do raio de borda */
+}
+
+.image-template1 img {
+  width: 100%;
+  border-radius: 3.5%; /* Arredondamento de 15% para um efeito mais suave */
+}
+/*SERVIÇOS*/
+.service-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.service-box {
+  margin-top: 2em;
+  padding: 20px;
+  border-radius: 1em;
+}
+
+.section-title {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.service-block {
+  background-color: #3C5F9A; /* Cor de fundo dos blocos de serviços */
+  color: #FFFFFF; /* Cor do texto dentro dos blocos de serviços */
+  margin-top: 1.6em;
+}
+
+.service-block:hover {
+  transform: scale(1.1); /* Aumenta a escala em 5% */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Adiciona um sombreamento com brilho */
+  background-color: rgb(114, 166, 239); /* Cor de fundo da carta */
+  border-radius: 10px; /* Borda arredondada */
+  transition: transform 0.3s, box-shadow 0.3s; /* Adiciona transição suave para os efeitos */
+  cursor: pointer; /* Muda o cursor para uma mãozinha quando passar o mouse */
+}
+
+.custom-border {
+  border: 2px solid #95AED1; /* Cor da borda dos blocos de serviços */
+}
+
+.custom-border img{
+  border-radius: 10em;
+}
+
+.service-block img {
+  width: 100%;
+}
+
+.btn-custom {
+  background-color: #FFFFFF; /* Cor de fundo do botão */
+  color: #000000; /* Cor do texto do botão */
+  border-color: #000000; /* Cor da borda do botão */
+}
+
+.btn-custom:hover {
+  background-color: #95AED1; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.section-title{
+  font-size: 4em;
+}
+
+.container .section-title h2{
+  max-width: 100%;
+}
+/*HERO TEXTO - LEGADO*/
+
+.container-text-jobs{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom:3em;
+  margin-top: .6em;
+}
+
+.container-text-jobs .text-jobs{
+  max-width: 100%;
+}
+
+.text-jobs{
+  font-size: 3.8em;
+  color: #95AED1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-left: .4em;
+  margin-bottom: .1em;
+}
+
+.span-text{
+  color:#3C5F9A;
+}
+
+.barra-vertical{
+  width: .6em; /* Largura da barra vertical */
+  background-color:#3C5F9A; /* Cor da barra vertical */
+  margin-left: 10em;
+}
+/*FORMATAÇÃO HERO - LEGADO*/
+
+.hero-section {
+  position: relative;
+  padding: 100px 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.logo-img {
+  width: 150px; /* ajuste o tamanho conforme necessário */
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+}
+
+.hero-section a {
+  padding: 15px 30px;
+  border-radius: 30px;
+  background-color: #ff3366;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.hero-section a:hover {
+  background-color: #e6005c;
+}
+
+.text-format{
+  color: #3C5F9A;
+  font-weight: bold;
+  background-color: #333;
+}
+
+.text-format-words{
+  font-weight: bold;
+}
+
+/* SOBRE-MARCA */
+.space-marca-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F0F0F0;
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.img-marca-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.img-marca-box img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.marca-box-text {
+  flex: 2;
+  background-color:#3C5F9A;
+  color: white;
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+
+/* Estilos para telas menores */
+@media screen and (max-width: 768px) {
+  .space-marca-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-marca-box {
+    margin-bottom: 1em;
+  }
+
+  .marca-box-text {
+    margin-top: 1em;
+    text-align: center;
+  }
+}
+
+/*CLIENTES-CARROSEL*/
+.swiper-name{
+  background-color:white;
+}
+
+.swiper-name-h2{
+  font-size: 3.8em;
+  margin: 1em 1em;
+  padding: .8em .4em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-name .swiper-name-h2 h2{
+  max-width: 100%;
+}
+
+.swiper-name span{
+  color: #3C5F9A;
+}
+
+.swiper-name h2{
+  color: #95AED1;
+}
+
+@media (max-width: 768px) {
+  .swiper-name {
+    width: 100%; 
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-name h2{
+    text-align: center; 
+    font-size: 3.6em;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-name span{
+    text-align: center; 
+    font-size: 3.3;
+  }
+}
+/* Estilo para a caixa esteticamente bonita */
+.highlight-box {
+  background-color: #3C5F9A;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra delicada */
+  overflow: hidden; /* Impede o conteúdo de transbordar */
+}
+
+/* Estilo para o carrossel */
+.swiper-container {
+  padding: 10px;
+  overflow: hidden; /* Impede os slides de transbordar */
+}
+
+/* Estilo para cada item de slide */
+.swiper-slide {
+  width: calc(63.3333% - 10px); /* Tamanho do item (33.3333% para três itens em uma linha) */
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra delicada */
+  border-radius: 8px;
+}
+
+/* Estilo para a imagem do slide no PC */
+.swiper-slide img {
+  width: 100%;
+  height: 580px; /* Altura fixa das imagens no carrossel para a versão desktop */
+  object-fit: cover; /* Evita que a imagem seja distorcida */
+  border-radius: 8px;
+}
+
+/* Estilo para a imagem do slide em dispositivos móveis */
+@media (max-width: 768px) {
+  .swiper-slide img {
+    height: 350px; /* Altura das imagens para dispositivos móveis (ajuste conforme necessário) */
+  }
+}
+
+/* Estilo para os detalhes do slide */
+.site-details {
+  padding: 10px;
+}
+
+/* Estilo para tornar o carrossel responsivo */
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: calc(90% - 10px); /* Tamanho do item (50% para dois itens em uma linha) */
+  }
+}
+/*CREDITOS*/
+.topo-style{
+  font-size: 1.8em;
+  color: #3C5F9A;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 2.5em;
+  background-color: #95aed15b;
+  border-radius: 10em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra delicada */
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .topo-style {
+    width: 80%;
+    font-size: 1.2em;
+    border-radius: 4em;
+    background-color: #3C5F9A;
+    color: white;
+
+  }
+}
+
+.contato-style{
+  font-size: 2em;
+  margin: 1em 1em;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.redes-box{
+  display: flex;
+  flex-direction: row;
+  gap: .6em;
+  justify-content: center;
+}
+
+/*ONDAS*/
+.waves-body{
+  position: relative;
+  margin: 5em 0 0 0;
+}
+
+.waves{
+  position: relative;
+  scale: 1000px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.wave1{
+  animation: moveWave1 2s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave1{
+  from{
+    transform: translateX(-2000px);
+    transform: scaleX(1.1);
+  }
+}
+
+.wave2{
+  animation: moveWave2 2s 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave2{
+  from{
+    transform: translateX(-1800px);
+    transform: scaleX(1.1);
+  }
+}
+
+.wave3{
+  animation: moveWave3 5s 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave3{
+  from{
+    transform: translateX(-1600px);
+    transform: scaleX(1.1);
+    
+  }
+}
+
+/*CREDITOS*/
+
+/* Estilo do footer */
+footer {
+  background-color: #3C5F9A;
+  padding: 20px 0;
+}
+
+/* Estilo do conteúdo do footer */
+.footer-content {
+  text-align: center;
+}
+
+/* Estilo do texto de créditos */
+.footer-credit {
+  color: #95AED1;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
